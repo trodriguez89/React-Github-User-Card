@@ -13,7 +13,9 @@ class App extends React.Component {
     axios.get("https://api.github.com/users/trodriguez89")
       .then(response => {
         console.log(response.data);
-        this.setState({ user: response.data })
+        this.setState({ 
+          user: response.data
+        })
       })
       .catch(error => {
         console.log("Oops, something went wrong!", error)
@@ -28,9 +30,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Thomas' Github Info</h1>
-        <p>{this.user.name}</p>
-        <UserCard user={this.user} followers={this.followers} />
+        <h1>My Github Info</h1>
+        <UserCard user={this.state.user} followers={this.state.followers} />
       </div>
     );
   }
